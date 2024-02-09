@@ -1,3 +1,6 @@
 [submodule "M5GFX"]
 	path = M5GFX
 	url = https://github.com/ciniml/M5GFX.git
+[submodule "lgfx-rs"]
+	path = lgfx-rs
+	url = https://github.com/ciniml/lgfx-rs.git

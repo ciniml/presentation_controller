@@ -1328,9 +1328,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "bindgen 0.60.1",
- "clang-sys",
  "embedded-graphics",
- "regex",
 ]
 
 [[package]]

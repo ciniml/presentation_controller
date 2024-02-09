@@ -1,0 +1,11 @@
+{
+    "rust-analyzer.check.extraEnv": {
+        "LIBCLANG_PATH": "/home/kenta/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-16.0.4-20231113/esp-clang/lib"
+    },
+    "rust-analyzer.server.etraEnv": {
+        "LIBCLANG_PATH": "/home/kenta/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-16.0.4-20231113/esp-clang/lib"
+    },
+    "rust-analyzer.cargo.extraEnv": {
+        "LIBCLANG_PATH": "/home/kenta/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-16.0.4-20231113/esp-clang/lib"
+    }
+}
