@@ -1,0 +1,59 @@
+[package]
+name = "presentation_controller"
+version = "0.1.0"
+authors = ["Kenta IDA <fuga@fugafuga.org>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+#pio = ["esp-idf-sys/pio"]
+
+[dependencies]
+anyhow = "1"
+embedded-graphics = "0.7.1"
+embedded-hal = "1"
+log = "0.4.17"
+num_enum = "0.5.7"
+lgfx = { path = "lgfx-rs" }
+heapless = { version = "0.8", features = ["serde"] }
+rand = "0.8.5"
+
+chrono = { version = "0.4.22", default-features = false, features = ["clock", "serde"] }
+uuid = { version = "1.2.1", features = ["serde"] }
+embedded-io = "0.3.1"
+byteorder = "1.5.0"
+
+[target.'cfg(target_os="espidf")'.dependencies]
+embedded-svc = {version = "0.24", features = ["experimental"]}
+esp-idf-hal = "0.43"
+esp-idf-svc = { version = "0.48", features = ["experimental"]}
+esp-idf-sys = { version = "0.34", features = ["binstart"] }
+
+[target.'cfg(target_os="linux")'.dependencies]
+reqwest = { version = "0.11.13", features = ["blocking"] }
+env_logger = "0.10.0"
+
+[build-dependencies]
+embuild = "0.30"
+anyhow = "1"
+png = "0.17.6"
+cc = "1.0.77"
+glob = "0.3.0"
+build-target = "0.4.0"
+
+[patch.crates-io]
+#embedded-io = { path = "./embedded-io" }
+
+[package.metadata.esp-idf-sys]
+extra_components = [
+    { component_dirs = [ "lgfx-rs/lgfx_c", "M5GFX" ] },
+]
+#esp_idf_tools_install_dir = "workspace"
+#esp_idf_components = ["pthread", "wifi"]
